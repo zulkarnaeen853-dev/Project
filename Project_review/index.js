@@ -10,9 +10,8 @@ dns.setServers(["8.8.8.8", "1.1.1.1"])
 app.use(express.json())
 
 const dbConfig = require('./Config/dbConfig')
-
-app.use(Route)
 app.use(cors());
+app.use(Route)
 dbConfig()
 
 
