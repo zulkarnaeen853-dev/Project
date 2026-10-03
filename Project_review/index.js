@@ -3,11 +3,12 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 const dns = require('node:dns')
+const router = require('./Route/index')
 const cors = require('cors')
 dns.setServers(["8.8.8.8", "1.1.1.1"])
 
 app.use(express.json())
-
+app.use(router)
 const dbConfig = require('./Config/dbConfig')
 app.use(cors());
 dbConfig()
