@@ -2,8 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const api = process.env.BASE_URL
-const authRoute = require("./api/index")
+const indexapi = require("./api/index")
 
-router.use(api, authRoute);
+router.use(api, indexapi);
 
 module.exports = router
