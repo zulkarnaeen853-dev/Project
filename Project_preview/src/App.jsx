@@ -16,7 +16,7 @@ import {
 import './App.css'
 
 const initialForm = { name: '', email: '', password: '' }
-const API_BASE_URL = 'http://localhost:3000/api/v1'
+const API_BASE_URL = 'http://localhost:3000/api/v1/auth'
 
 function App() {
   const [mode, setMode] = useState('register')

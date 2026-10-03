@@ -3,7 +3,7 @@ const router = express.Router()
 
 const authController = require('../../Controller/authController')
 
-router.post("/register", authController.regisController)
-router.post("/unlock", authController.unlockController)
+router.use("/register", authController.regisController)
+router.use("/unlock", authController.unlockController)
 
 module.exports = router
