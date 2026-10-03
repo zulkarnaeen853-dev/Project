@@ -12,10 +12,17 @@ app.use(express.json())
 const dbConfig = require('./Config/dbConfig')
 app.use(cors());
 app.use(Route)
-dbConfig()
 
+async function startServer() {
+    try {
+        await dbConfig()
+        app.listen(port, () => {
+            console.log(`server is running on port: ${port}`)
+        })
+    } catch (error) {
+        console.error('Failed to connect to MongoDB:', error.message)
+        process.exit(1)
+    }
+}
 
-
-app.listen(port, () => {
-    console.log(`server is running on port: ${port}`)
-})
+startServer()
