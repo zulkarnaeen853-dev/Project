@@ -1,5 +1,6 @@
 const user = require('../Model/registerModel')
 const bcrypt = require('bcrypt')
+const nodemailer = require('nodemailer')
 
 const regisController = async (req, res) => {
     const { name, email, password, profilePic, address, phone, gender, dob } = req.body || {}
