@@ -10,7 +10,16 @@ import {
 } from 'lucide-react'
 import './App.css'
 
-const initialForm = { name: '', email: '', password: '' }
+const initialForm = {
+  name: '',
+  email: '',
+  password: '',
+  profilePic: '',
+  address: '',
+  phone: '',
+  gender: '',
+  dob: '',
+}
 const REGISTER_URL = 'http://localhost:3000/api/v1/auth/register'
 
 function App() {
@@ -33,6 +42,11 @@ function App() {
       name: form.name.trim(),
       email: form.email.trim(),
       password: form.password,
+      profilePic: form.profilePic.trim(),
+      address: form.address.trim(),
+      phone: form.phone.trim(),
+      gender: form.gender.trim(),
+      dob: form.dob,
     }
 
     try {
@@ -145,6 +159,58 @@ function App() {
                 {showPassword ? <EyeOff size={17} /> : <Eye size={17} />}
               </button>
             </div>
+
+            <label className="field-label" htmlFor="profilePic">Profile picture URL</label>
+            <input
+              id="profilePic"
+              name="profilePic"
+              type="url"
+              placeholder="https://example.com/photo.jpg"
+              value={form.profilePic}
+              onChange={updateField}
+            />
+
+            <label className="field-label" htmlFor="address">Address</label>
+            <input
+              id="address"
+              name="address"
+              type="text"
+              autoComplete="street-address"
+              placeholder="Street, city, and region"
+              value={form.address}
+              onChange={updateField}
+            />
+
+            <label className="field-label" htmlFor="phone">Phone</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              placeholder="e.g. +1 555 123 4567"
+              value={form.phone}
+              onChange={updateField}
+            />
+
+            <label className="field-label" htmlFor="gender">Gender</label>
+            <input
+              id="gender"
+              name="gender"
+              type="text"
+              placeholder="Gender"
+              value={form.gender}
+              onChange={updateField}
+            />
+
+            <label className="field-label" htmlFor="dob">Date of birth</label>
+            <input
+              id="dob"
+              name="dob"
+              type="date"
+              autoComplete="bday"
+              value={form.dob}
+              onChange={updateField}
+            />
 
             {notice && (
               <p className={`notice ${notice.type}`} role="status">
