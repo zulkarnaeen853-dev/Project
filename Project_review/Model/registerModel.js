@@ -14,7 +14,23 @@ const regisBluePrint = new Schema({
     password: {
         type: String,
         require: true
+    },
+    profilePic: {
+        type: String
+    },
+    address: {
+        type: String
+    },
+    phone: {
+        type: String
+    },
+    gender: {
+        type: String
+    },
+    dob: {
+        type: String
     }
+
 })
 
 const user = mongoose.model("user", regisBluePrint)
